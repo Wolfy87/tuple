@@ -69,6 +69,17 @@
 			});
 			assert.strictEqual(scope, t);
 		});
+
+		test('can be called with custom scope', function () {
+			var t = new Tuple();
+			var bogusScope = {humpty:'dumpty'};
+			var scope;
+			t.unpack(function () {
+				scope = this;
+			}, bogusScope);
+			assert.strictEqual(scope, bogusScope);
+		});
+
 	});
 
 	suite('Tuple#toString()', function () {

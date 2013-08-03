@@ -34,10 +34,12 @@
 	 * returns.
 	 *
 	 * @param {Function} unpacker Is passed all of the tuples values in order, it's return value will be returned.
+	 * @param {Object} scope The optional scope (value of `this`) when executing the unpacker-function. Will
+	 * 	default to the respective instance of `Tuple` if not specified.
 	 * @return {*} The value that the unpacker function returns.
 	 */
-	Tuple.prototype.unpack = function unpack(unpacker) {
-		return unpacker.apply(this, this);
+	Tuple.prototype.unpack = function unpack(unpacker, scope) {
+		return unpacker.apply(scope || this, this);
 	};
 
 	/**
