@@ -71,7 +71,7 @@
 		var i;
 
 		for (i = 0; i < length; i += 1) {
-			callback(this[i]);
+			callback(this[i], i, this);
 		}
 	};
 
